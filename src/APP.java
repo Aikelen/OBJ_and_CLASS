@@ -1,6 +1,15 @@
 
+/**
+ * Главный класс APP демонстрирует использование классов Author и Book.
+ * Проверяет работу методов toString, equals и hashCode.
+ *
+ * В методе main создаются объекты классов Author и Book, после чего
+ * выполняется тестирование следующих возможностей:
+ * - Вывод информации о книгах с помощью метода toString();
+ * - Сравнение объектов Book с использованием метода equals();
+ * - Проверка корректности вычисления хеш-кодов с помощью hashCode().
+ */
 public class APP {
-
     public static void main(String[] args) {
         // Создание авторов
         Author author1 = new Author("Leo", "Tolstoy");
@@ -9,14 +18,18 @@ public class APP {
         // Создание книг
         Book book1 = new Book("War and Peace", author1, 1869);
         Book book2 = new Book("Crime and Punishment", author2, 1866);
+        Book book3 = new Book("War and Peace", author1, 1869);
 
-        // Вывод информации о книгах
-        System.out.println("Книга 1: " + book1.getName() + ", автор: " + book1.getAuthor().getFullName() + ", год публикации: " + book1.getYear());
-        System.out.println("Книга 2: " + book2.getName() + ", автор: " + book2.getAuthor().getFullName() + ", год публикации: " + book2.getYear());
+        // Проверка toString()
+        System.out.println(book1);
+        System.out.println(book2);
 
-        // Изменение года публикации книги
-        book1.setYear(1873);
-        System.out.println("Обновленный год публикации книги '" + book1.getName() + "': " + book1.getYear());
+        // Проверка equals()
+        System.out.println("book1 равна book2: " + book1.equals(book2));
+        System.out.println("book1 равна book3: " + book1.equals(book3));
+
+        // Проверка hashCode()
+        System.out.println("hashCode book1: " + book1.hashCode());
+        System.out.println("hashCode book3: " + book3.hashCode());
     }
 }
-
